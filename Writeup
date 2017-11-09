@@ -1,0 +1,27 @@
+1. Pipeline description
+        My pipeline consists of 6 steps. These 6 steps are:
+                1. transform the rgb image into grayscale.
+                2. blur the image to denoise.
+                3. find edge by Canny edge detection algorithm.
+                4. select proper edges by defining a ROI.
+                5. do hough transform on these selected edges to find lines.
+                6. draw lines on the original image.
+        In order to draw a single line on the left and right lanes, I modify 
+        the draw_line() function in the following way. After finding out all
+        lines using hough transform, I can locate the left most point in the
+        bottom of the image and another left most point in the middle of the
+        image. Then I can draw the left lane using these two points. Do the 
+        same thing to get the right lane. After getting these four points, I
+        can calculate the slope and intersection of two lanes. Based on those,
+        I can extend these two lanes so that they always start from the bottom
+        edge of the image. 
+        
+2. Potential shortcomings
+        One potential shorcomings with the pipeline is that the ROI selection
+        is fixed. If the FOV of the camera changes, the ROI might points to the
+        wrong region. 
+       
+3. Possible improvements
+        A possible improvement would be dynamically define the ROI based on the
+        FOV of the camera. 
+            
