@@ -7,5 +7,5 @@ The algorithm starts from
 1. transform the image into grayscale.
 2. blur the image to get rid of noise.
 3. detect edges using Canny edge detection algorithm.
-4. do hough transform to those edges and find out lines.
+4. do hough transform on those edges and find out lines.
 5. draw lines on the image based on the result of hough transform.
